@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jorge Cordeiro | Msc Data Science</title>
+    <title>Jorge Cordeiro | Data Science & ML Engineer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -214,16 +214,8 @@
 
         /* About Section */
         .about-content {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 50px;
-            align-items: center;
-        }
-
-        .about-image img {
-            max-width: 100%;
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         .about-text h2 {
@@ -234,35 +226,6 @@
         .about-text p {
             margin-bottom: 20px;
             color: var(--text-light);
-        }
-
-        .social-links {
-            position: absolute;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            left: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-
-        .social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: var(--white);
-            color: var(--primary);
-            border-radius: 5px;
-            transition: var(--transition);
-            box-shadow: var(--box-shadow);
-        }
-
-        .social-links a:hover {
-            background-color: var(--primary);
-            color: var(--white);
-            transform: translateY(-3px);
         }
 
         .tech-badges {
@@ -281,66 +244,10 @@
             display: inline-block;
         }
 
-        /* Services Section */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .service-card {
-            background-color: var(--white);
-            border-radius: var(--border-radius);
-            padding: 40px;
-            text-align: center;
-            box-shadow: var(--box-shadow);
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .service-card:nth-child(1) {
-            background-color: rgba(230, 126, 34, 0.05);
-        }
-
-        .service-card:nth-child(2) {
-            background-color: rgba(230, 126, 34, 0.08);
-        }
-
-        .service-card:nth-child(3) {
-            background-color: rgba(230, 126, 34, 0.12);
-        }
-
-        .service-icon {
-            width: 70px;
-            height: 70px;
-            margin: 0 auto 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            color: var(--primary);
-            background-color: rgba(230, 126, 34, 0.1);
-            border-radius: 50%;
-        }
-
-        .service-title {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-        }
-
-        .service-description {
-            color: var(--text-light);
-        }
-
         /* Projects Section */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
             gap: 30px;
         }
 
@@ -354,11 +261,12 @@
 
         .project-card:hover {
             transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
         }
 
         .project-image {
+            height: 200px;
             width: 100%;
-            aspect-ratio: 16/9;
             background-size: cover;
             background-position: center;
         }
@@ -371,26 +279,35 @@
             display: inline-block;
             background-color: rgba(230, 126, 34, 0.1);
             color: var(--primary);
-            padding: 5px 10px;
+            padding: 5px 15px;
             border-radius: 20px;
             font-size: 0.8rem;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
 
         .project-title {
             font-size: 1.4rem;
             margin-bottom: 15px;
+            color: var(--text-dark);
         }
 
         .project-description {
             color: var(--text-light);
             margin-bottom: 20px;
+            line-height: 1.6;
         }
 
         .project-link {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
             color: var(--primary);
             font-weight: 600;
+            gap: 5px;
+            transition: var(--transition);
+        }
+
+        .project-link:hover {
+            gap: 8px;
         }
 
         /* Contact Section */
@@ -530,9 +447,7 @@
 
         /* Responsive Design */
         @media (max-width: 992px) {
-            .hero-content,
-            .about-content,
-            .contact-container {
+            .hero-content {
                 grid-template-columns: 1fr;
             }
 
@@ -541,15 +456,8 @@
                 order: -1;
             }
 
-            .about-image {
-                text-align: center;
-            }
-
-            .social-links {
-                position: static;
-                flex-direction: row;
-                transform: none;
-                margin-top: 20px;
+            .contact-container {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -562,7 +470,6 @@
                 font-size: 2.5rem;
             }
 
-            .services-grid,
             .projects-grid {
                 grid-template-columns: 1fr;
             }
@@ -610,7 +517,6 @@
                 <div class="nav-links" id="navLinks">
                     <a href="#home" class="active">Home</a>
                     <a href="#about">About</a>
-                    <a href="#services">Services</a>
                     <a href="#projects">Projects</a>
                     <a href="#contact">Contact</a>
                 </div>
@@ -628,7 +534,7 @@
                 <div class="hero-text">
                     <h3>Hello there...</h3>
                     <h1>Jorge Cordeiro</h1>
-                    <p>I'm a master's degree student specialized in building scalable Machine Learning and Data Engineering solutions.</p>
+                    <p>I'm a Data Science & ML Engineer specialized in building scalable Machine Learning and Data Engineering solutions.</p>
                     <p>Crafting seamless data experiences fueled by passion, expertise, and a data-driven mindset. Let's transform ideas into impactful realities.</p>
                     <div class="hero-buttons">
                         <a href="#projects" class="btn">My Work</a>
@@ -636,7 +542,7 @@
                     </div>
                 </div>
                 <div class="hero-image">
-                    <img src="foto_passe.jpg" alt="Jorge Cordeiro" />
+                    <img src="/api/placeholder/500/600" alt="Jorge Cordeiro" />
                 </div>
             </div>
         </div>
@@ -650,15 +556,8 @@
             <div class="title-divider"></div>
             
             <div class="about-content">
-                <div class="about-image">
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/in/jmcordeiro/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="https://github.com/jorgemiguelcordeiro" target="_blank"><i class="fab fa-github"></i></a>
-                        <a href="#contact"><i class="fas fa-envelope"></i></a>
-                  
-                </div>
                 <div class="about-text">
-                    
+                    <p>Data Science and ML Engineer with experience in building scalable Machine Learning and Data Engineering solutions. I'm currently working on my master's program, focusing on advanced ML Engineering techniques.</p>
                     
                     <p>I specialize in helping businesses thrive in the digital age through leveraging data, innovative technologies, and insightful visualizations.</p>
                     
@@ -685,65 +584,6 @@
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section class="section" id="services" style="background-color: #f8f9fa;">
-        <div class="container">
-            <h3 class="section-subtitle">What I Do</h3>
-            <h2 class="section-title">My Services</h2>
-            <div class="title-divider"></div>
-            
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3 class="service-title">Data Science</h3>
-                    <p class="service-description">Applying statistical and machine learning techniques to extract insights and build predictive models from complex datasets.</p>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-cogs"></i>
-                    </div>
-                    <h3 class="service-title">MLOps</h3>
-                    <p class="service-description">Building and deploying machine learning models at scale with automated pipelines, monitoring, and maintenance.</p>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-robot"></i>
-                    </div>
-                    <h3 class="service-title">AI Solutions</h3>
-                    <p class="service-description">Creating custom AI and ML models to solve specific business challenges and drive innovation.</p>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-database"></i>
-                    </div>
-                    <h3 class="service-title">Data Engineering</h3>
-                    <p class="service-description">Designing and implementing data pipelines, warehouses, and ETL processes for efficient data management.</p>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-chart-bar"></i>
-                    </div>
-                    <h3 class="service-title">Data Visualization</h3>
-                    <p class="service-description">Creating interactive dashboards and visualization tools to communicate insights effectively.</p>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-brain"></i>
-                    </div>
-                    <h3 class="service-title">Deep Learning</h3>
-                    <p class="service-description">Implementing neural networks and deep learning models for complex pattern recognition tasks.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Projects Section -->
     <section class="section" id="projects">
         <div class="container">
@@ -755,7 +595,7 @@
                 <div class="project-card">
                     <div class="project-image" style="background-color: #3498db;"></div>
                     <div class="project-content">
-                        <span class="project-category">Machine Learning</span>
+                        <div class="project-category">Machine Learning</div>
                         <h3 class="project-title">ML Interface</h3>
                         <p class="project-description">Interfaces and tools for machine learning model deployment and interaction.</p>
                         <a href="https://github.com/jorgemiguelcordeiro/ML_Interface" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
@@ -765,7 +605,7 @@
                 <div class="project-card">
                     <div class="project-image" style="background-color: #2ecc71;"></div>
                     <div class="project-content">
-                        <span class="project-category">Natural Language Processing</span>
+                        <div class="project-category">Natural Language Processing</div>
                         <h3 class="project-title">Text Mining & NLP</h3>
                         <p class="project-description">Natural language processing and text analysis implementations.</p>
                         <a href="https://github.com/jorgemiguelcordeiro/Text-Mining-NLP" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
@@ -775,7 +615,7 @@
                 <div class="project-card">
                     <div class="project-image" style="background-color: #e74c3c;"></div>
                     <div class="project-content">
-                        <span class="project-category">Deep Learning</span>
+                        <div class="project-category">Deep Learning</div>
                         <h3 class="project-title">Computer Vision</h3>
                         <p class="project-description">Implementation of computer vision algorithms and applications.</p>
                         <a href="https://github.com/jorgemiguelcordeiro/Computer-vision" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
@@ -785,7 +625,7 @@
                 <div class="project-card">
                     <div class="project-image" style="background-color: #9b59b6;"></div>
                     <div class="project-content">
-                        <span class="project-category">MLOps</span>
+                        <div class="project-category">MLOps</div>
                         <h3 class="project-title">ML Operations</h3>
                         <p class="project-description">Tools and frameworks for machine learning operations and deployment.</p>
                         <a href="https://github.com/jorgemiguelcordeiro/Machine-Learning-Operations-MLOps-/tree/main" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
@@ -795,7 +635,7 @@
                 <div class="project-card">
                     <div class="project-image" style="background-color: #f1c40f;"></div>
                     <div class="project-content">
-                        <span class="project-category">Statistics</span>
+                        <div class="project-category">Statistics</div>
                         <h3 class="project-title">Statistics for Data Science</h3>
                         <p class="project-description">Statistical methods and implementations for data science applications.</p>
                         <a href="https://github.com/jorgemiguelcordeiro/Statistics-for-Data-Science" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
@@ -805,7 +645,7 @@
                 <div class="project-card">
                     <div class="project-image" style="background-color: #1abc9c;"></div>
                     <div class="project-content">
-                        <span class="project-category">LLMs</span>
+                        <div class="project-category">LLMs</div>
                         <h3 class="project-title">Large Language Models</h3>
                         <p class="project-description">Projects and experiments with large language models and generative AI.</p>
                         <a href="https://github.com/jorgemiguelcordeiro/LLMs" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
@@ -893,7 +733,6 @@
             <div class="footer-links">
                 <a href="#home">Home</a>
                 <a href="#about">About</a>
-                <a href="#services">Services</a>
                 <a href="#projects">Projects</a>
                 <a href="#contact">Contact</a>
             </div>
