@@ -3,137 +3,763 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+    <title>Jorge Miguel Cordeiro | Data Science & ML Engineer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
+        /* Variables */
+        :root {
+            --primary: #3a86ff;
+            --primary-dark: #2463cc;
+            --secondary: #333;
+            --light-bg: #f8f9fa;
+            --dark-bg: #212529;
+            --text: #333;
+            --light-text: #f8f9fa;
+            --border-radius: 8px;
+            --box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+        }
+
+        /* Base Styles */
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
+            box-sizing: border-box;
         }
-        .container {
-            width: 80%;
-            margin: auto;
-            overflow: hidden;
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--light-bg);
+            overflow-x: hidden;
         }
-        header {
-            background: #333;
-            color: #fff;
-            padding-top: 30px;
-            min-height: 70px;
-            border-bottom: #77aaff 3px solid;
-        }
-        header h1 {
-            text-align: center;
-            margin: 0;
-            font-size: 36px;
-        }
-        .about, .repositories, .socials, .tech-stack {
-            padding: 20px;
-            margin: 20px 0;
-            background: #fff;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        .about h2, .repositories h2, .socials h2, .tech-stack h2 {
-            color: #333;
-            border-bottom: 2px solid #77aaff;
-            padding-bottom: 10px;
-        }
-        .badge {
-            display: inline-block;
-            padding: 5px 10px;
-            margin: 5px;
-            border-radius: 3px;
-            font-size: 14px;
-            color: #fff;
-            background-color: #77aaff;
-        }
+
         a {
-            color: #77aaff;
+            color: var(--primary);
             text-decoration: none;
+            transition: var(--transition);
         }
+
         a:hover {
-            text-decoration: underline;
+            color: var(--primary-dark);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: var(--secondary);
+            margin-bottom: 40px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            width: 50px;
+            height: 4px;
+            background-color: var(--primary);
+        }
+
+        /* Header Styles */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--dark-bg);
+            z-index: 1000;
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--light-text);
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-menu {
+            display: flex;
+        }
+
+        .nav-menu li {
+            list-style: none;
+            margin-left: 30px;
+        }
+
+        .nav-menu a {
+            color: var(--light-text);
+            font-weight: 500;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            color: var(--light-text);
+            font-size: 1.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 150px 0 100px;
+            background: linear-gradient(135deg, var(--dark-bg) 0%, #2a2f35 100%);
+            color: var(--light-text);
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            max-width: 800px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: #fff;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .hero-btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            color: #fff;
+        }
+
+        /* About Section */
+        .about-content {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-info {
+            margin-bottom: 20px;
+        }
+
+        .about-info p {
+            margin-bottom: 15px;
+        }
+
+        .about-info i {
+            color: var(--primary);
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+
+        /* Repositories Section */
+        .repos-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .repo-category {
+            margin-bottom: 40px;
+        }
+
+        .category-title {
+            font-size: 1.5rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+            border-left: 4px solid var(--primary);
+            padding-left: 15px;
+        }
+
+        .repo-card {
+            background-color: #fff;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+
+        .repo-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .repo-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .repo-card h3 i {
+            color: var(--primary);
+            margin-right: 10px;
+        }
+
+        .repo-card p {
+            margin-bottom: 15px;
+            color: #666;
+        }
+
+        .repo-link {
+            display: inline-block;
+            padding: 8px 15px;
+            background-color: var(--primary);
+            color: #fff;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .repo-link:hover {
+            background-color: var(--primary-dark);
+            color: #fff;
+        }
+
+        /* Tech Stack Section */
+        .tech-stack-content {
+            text-align: center;
+        }
+
+        .tech-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .badge {
+            background-color: #fff;
+            color: var(--secondary);
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 500;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+        }
+
+        .badge:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            background-color: var(--primary);
+            color: #fff;
+        }
+
+        .badge i {
+            margin-right: 8px;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .footer-logo span {
+            color: var(--primary);
+        }
+
+        .footer-description {
+            max-width: 400px;
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: #fff;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-nav h4 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .footer-nav ul {
+            list-style: none;
+        }
+
+        .footer-nav li {
+            margin-bottom: 10px;
+        }
+
+        .footer-nav a {
+            color: rgba(255,255,255,0.8);
+            transition: var(--transition);
+        }
+
+        .footer-nav a:hover {
+            color: var(--primary);
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background-color: var(--primary-dark);
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .section-title {
+                font-size: 1.8rem;
+            }
+            .hero-title {
+                font-size: 2.8rem;
+            }
+            .about-content {
+                flex-direction: column;
+            }
+            .footer-content {
+                flex-direction: column;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                flex-direction: column;
+                background-color: var(--dark-bg);
+                width: 100%;
+                padding: 20px 0;
+                text-align: center;
+                transition: var(--transition);
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            }
+            .nav-menu.active {
+                left: 0;
+            }
+            .nav-menu li {
+                margin: 15px 0;
+            }
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            .repos-container {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <header>
+    <!-- Header -->
+    <header class="header">
         <div class="container">
-            <h1>My Portfolio</h1>
+            <a href="#" class="logo">Jorge<span>Cordeiro</span></a>
+            <div class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#repositories">Projects</a></li>
+                <li><a href="#tech-stack">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
         </div>
     </header>
 
-    <div class="container">
-        <section class="about">
-            <h2>💫 About Me</h2>
-            <p>🔭 I'm currently working in my master on: Building scalable Machine Learning and Data Engineering solutions.<br>
-            🤝 I'm looking to collaborate on: Open-source projects related to ML Engineering, MLOps, and Big Data.<br>
-            🌱 I'm currently learning: Reinforcement Learning, Text Mining, and Cloud-based MLOps strategies.<br>
-            💬 Ask me about: Data Science and ML Engineering.<br>
-            ⚡ Fun fact: I won the 44th edition of the Global Management Challenge, competing against 480 teams!</p>
-        </section>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h3 class="hero-subtitle">Data Science & ML Engineer</h3>
+                <h1 class="hero-title">Building scalable Machine Learning solutions</h1>
+                <p class="hero-description">
+                    Specializing in MLOps, Data Engineering, and innovative ML applications.
+                    Let's collaborate on building impactful solutions together.
+                </p>
+                <a href="#repositories" class="hero-btn">View My Work</a>
+            </div>
+        </div>
+    </section>
 
-        <section class="repositories">
-            <h2>📂 My Main Repositories</h2>
-            <h3>🔹 Machine Learning & Data Science</h3>
-            <ul>
-                <li><a href="https://github.com/jorgemiguelcordeiro/Machine-Learning-Projects">📊 Machine Learning Projects</a></li>
-                <li><a href="https://github.com/jorgemiguelcordeiro/ML_Interface">🤖 ML_Interface</a></li>
-                <li><a href="https://github.com/jorgemiguelcordeiro/Statistics-for-Data-Science">📈 Statistics for Data Science</a></li>
-                <li><a href="https://github.com/jorgemiguelcordeiro/OOP-and-General-Programming">🐍 OOP and General Programming</a></li>
-                <li><a href="https://github.com/jorgemiguelcordeiro/Machine-Learning-Operations-MLOps-/tree/main">⚙️ Machine Learning Operations (MLOps)</a></li>
-            </ul>
-            <h3>🔹 SQL & Data Engineering</h3>
-            <ul>
-                <li><a href="https://github.com/jorgemiguelcordeiro/SQL-project-Storing-and-Retrieving-Data-">🗃️ SQL_project _Storing_and_Retrieving_Data</a></li>
-            </ul>
-            <h3>🔹 Data Mining & NLP</h3>
-            <ul>
-                <li><a href="https://github.com/jorgemiguelcordeiro/Data-Mining">⛏️ Data Mining</a></li>
-                <li><a href="https://github.com/jorgemiguelcordeiro/Text-Mining-NLP">🔤 Text Mining & NLP</a></li>
-            </ul>
-            <h3>🔹 LLMs</h3>
-            <ul>
-                <li><a href="https://github.com/jorgemiguelcordeiro/LLMs">🤖 LLMs</a></li>
-            </ul>
-            <h3>🔹 Deep learning & Computer Vision</h3>
-            <ul>
-                <li><a href="https://github.com/jorgemiguelcordeiro/Computer-vision">👀 Computer Vision</a></li>
-                <li><a href="https://github.com/jorgemiguelcordeiro/Deep-Learning">👀 Deep Learning</a></li>
-            </ul>
-        </section>
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <div class="about-info">
+                        <p><i class="fas fa-laptop-code"></i> <strong>Current Focus:</strong> Building scalable Machine Learning and Data Engineering solutions for my master's program.</p>
+                        <p><i class="fas fa-hands-helping"></i> <strong>Looking to Collaborate:</strong> Open-source projects related to ML Engineering, MLOps, and Big Data.</p>
+                        <p><i class="fas fa-graduation-cap"></i> <strong>Currently Learning:</strong> Reinforcement Learning, Text Mining, and Cloud-based MLOps strategies.</p>
+                        <p><i class="fas fa-comment-dots"></i> <strong>Ask me About:</strong> Data Science and ML Engineering.</p>
+                        <p><i class="fas fa-trophy"></i> <strong>Achievement:</strong> Winner of the 44th edition of the Global Management Challenge, competing against 480 teams!</p>
+                    </div>
+                    <a href="https://www.linkedin.com/in/jmcordeiro/" target="_blank" class="hero-btn">
+                        <i class="fab fa-linkedin"></i> Connect on LinkedIn
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <section class="socials">
-            <h2>🌐 Socials</h2>
-            <p><a href="https://www.linkedin.com/in/jmcordeiro/"><img src="https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white" alt="LinkedIn"></a></p>
-        </section>
+    <!-- Repositories Section -->
+    <section class="section" id="repositories" style="background-color: #f1f5f9;">
+        <div class="container">
+            <h2 class="section-title">Projects & Repositories</h2>
+            
+            <!-- ML & Data Science -->
+            <div class="repo-category">
+                <h3 class="category-title">Machine Learning & Data Science</h3>
+                <div class="repos-container">
+                    <div class="repo-card">
+                        <h3><i class="fas fa-chart-line"></i> Machine Learning Projects</h3>
+                        <p>A collection of various machine learning projects and implementations.</p>
+                        <a href="https://github.com/jorgemiguelcordeiro/Machine-Learning-Projects" target="_blank" class="repo-link">View Project</a>
+                    </div>
+                    <div class="repo-card">
+                        <h3><i class="fas fa-robot"></i> ML_Interface</h3>
+                        <p>Interfaces and tools for machine learning model deployment and interaction.</p>
+                        <a href="https://github.com/jorgemiguelcordeiro/ML_Interface" target="_blank" class="repo-link">View Project</a>
+                    </div>
+                    <div class="repo-card">
+                        <h3><i class="fas fa-chart-bar"></i> Statistics for Data Science</h3>
+                        <p>Statistical methods and implementations for data science applications.</p>
+                        <a href="https://github.com/jorgemiguelcordeiro/Statistics-for-Data-Science" target="_blank" class="repo-link">View Project</a>
+                    </div>
+                    <div class="repo-card">
+                        <h3><i class="fab fa-python"></i> OOP and General Programming</h3>
+                        <p>Object-oriented programming concepts and general programming resources.</p>
+                        <a href="https://github.com/jorgemiguelcordeiro/OOP-and-General-Programming" target="_blank" class="repo-link">View Project</a>
+                    </div>
+                    <div class="repo-card">
+                        <h3><i class="fas fa-cogs"></i> MLOps</h3>
+                        <p>Tools and frameworks for machine learning operations and deployment.</p>
+                        <a href="https://github.com/jorgemiguelcordeiro/Machine-Learning-Operations-MLOps-/tree/main" target="_blank" class="repo-link">View Project</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- SQL & Data Engineering -->
+            <div class="repo-category">
+                <h3 class="category-title">SQL & Data Engineering</h3>
+                <div class="repos-container">
+                    <div class="repo-card">
+                        <h3><i class="fas fa-database"></i> SQL Project - Storing and Retrieving Data</h3>
+                        <p>SQL implementations for efficient data storage and retrieval operations.</p>
+                        <a href="https://github.com/jorgemiguelcordeiro/SQL-project-Storing-and-Retrieving-Data-" target="_blank" class="repo-link">View Project</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Data Mining & NLP -->
+            <div class="repo-category">
+                <h3 class="category-title">Data Mining & NLP</h3>
+                <div class="repos-container">
+                    <div class="repo-card">
+                        <h3><i class="fas fa-search"></i> Data Mining</h3>
+                        <p>Techniques and algorithms for extracting patterns and knowledge from data.</p>
+                        <a href="https://github.com/jorgemiguelcordeiro/Data-Mining" target="_blank" class="repo-link">View Project</a>
+                    </div>
+                    <div class="repo-card">
+                        <h3><i class="fas fa-language"></i> Text Mining & NLP</h3>
+                        <p>Natural language processing and text analysis implementations.</p>
+                        <a href="https://github.com/jorgemiguelcordeiro/Text-Mining-NLP" target="_blank" class="repo-link">View Project</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- LLMs -->
+            <div class="repo-category">
+                <h3 class="category-title">Large Language Models</h3>
+                <div class="repos-container">
+                    <div class="repo-card">
+                        <h3><i class="fas fa-brain"></i> LLMs</h3>
+                        <p>Projects and experiments with large language models and generative AI.</p>
+                        <a href="https://github.com/jorgemiguelcordeiro/LLMs" target="_blank" class="repo-link">View Project</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Deep Learning & Computer Vision -->
+            <div class="repo-category">
+                <h3 class="category-title">Deep Learning & Computer Vision</h3>
+                <div class="repos-container">
+                    <div class="repo-card">
+                        <h3><i class="fas fa-eye"></i> Computer Vision</h3>
+                        <p>Implementation of computer vision algorithms and applications.</p>
+                        <a href="https://github.com/jorgemiguelcordeiro/Computer-vision" target="_blank" class="repo-link">View Project</a>
+                    </div>
+                    <div class="repo-card">
+                        <h3><i class="fas fa-network-wired"></i> Deep Learning</h3>
+                        <p>Deep neural network models and frameworks for various applications.</p>
+                        <a href="https://github.com/jorgemiguelcordeiro/Deep-Learning" target="_blank" class="repo-link">View Project</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <section class="tech-stack">
-            <h2>💻 Tech Stack</h2>
-            <p>
-                <span class="badge">Python</span>
-                <span class="badge">R</span>
-                <span class="badge">LaTeX</span>
-                <span class="badge">MySQL</span>
-                <span class="badge">TensorFlow</span>
-                <span class="badge">Anaconda</span>
-                <span class="badge">scikit-learn</span>
-                <span class="badge">Scipy</span>
-                <span class="badge">PyTorch</span>
-                <span class="badge">Plotly</span>
-                <span class="badge">OpenCV</span>
-                <span class="badge">Pandas</span>
-                <span class="badge">NumPy</span>
-                <span class="badge">Matplotlib</span>
-                <span class="badge">Keras</span>
-                <span class="badge">Notion</span>
-                <span class="badge">Apache Spark</span>
-            </p>
-        </section>
+    <!-- Tech Stack Section -->
+    <section class="section" id="tech-stack">
+        <div class="container">
+            <h2 class="section-title">Tech Stack</h2>
+            <div class="tech-stack-content">
+                <div class="tech-badges">
+                    <div class="badge"><i class="fab fa-python"></i> Python</div>
+                    <div class="badge"><i class="fab fa-r-project"></i> R</div>
+                    <div class="badge"><i class="fas fa-square-root-alt"></i> LaTeX</div>
+                    <div class="badge"><i class="fas fa-database"></i> MySQL</div>
+                    <div class="badge"><i class="fas fa-brain"></i> TensorFlow</div>
+                    <div class="badge"><i class="fas fa-code-branch"></i> Anaconda</div>
+                    <div class="badge"><i class="fas fa-cogs"></i> scikit-learn</div>
+                    <div class="badge"><i class="fas fa-calculator"></i> Scipy</div>
+                    <div class="badge"><i class="fas fa-fire"></i> PyTorch</div>
+                    <div class="badge"><i class="fas fa-chart-area"></i> Plotly</div>
+                    <div class="badge"><i class="fas fa-eye"></i> OpenCV</div>
+                    <div class="badge"><i class="fas fa-table"></i> Pandas</div>
+                    <div class="badge"><i class="fas fa-superscript"></i> NumPy</div>
+                    <div class="badge"><i class="fas fa-chart-line"></i> Matplotlib</div>
+                    <div class="badge"><i class="fas fa-network-wired"></i> Keras</div>
+                    <div class="badge"><i class="fas fa-sticky-note"></i> Notion</div>
+                    <div class="badge"><i class="fas fa-bolt"></i> Apache Spark</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section" id="contact" style="background-color: #f1f5f9;">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <div class="about-info">
+                        <p>
+                            I'm currently looking for collaboration opportunities on open-source projects
+                            related to ML Engineering, MLOps, and Big Data. Feel free to connect with me
+                            on LinkedIn or check out my GitHub repositories.
+                        </p>
+                        <p style="margin-top: 30px;">
+                            <a href="https://www.linkedin.com/in/jmcordeiro/" target="_blank" class="hero-btn">
+                                <i class="fab fa-linkedin"></i> Connect on LinkedIn
+                            </a>
+                            <a href="https://github.com/jorgemiguelcordeiro" target="_blank" class="hero-btn" style="margin-left: 15px; background-color: #333;">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3 class="footer-logo">Jorge<span>Cordeiro</span></h3>
+                    <p class="footer-description">
+                        A data science and machine learning engineer focused on building
+                        scalable and efficient solutions for complex problems.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/jmcordeiro/" target="_blank" class="social-link">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://github.com/jorgemiguelcordeiro" target="_blank" class="social-link">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-nav">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#repositories">Projects</a></li>
+                        <li><a href="#tech-stack">Skills</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-nav">
+                    <h4>Projects</h4>
+                    <ul>
+                        <li><a href="https://github.com/jorgemiguelcordeiro/Machine-Learning-Projects" target="_blank">ML Projects</a></li>
+                        <li><a href="https://github.com/jorgemiguelcordeiro/Text-Mining-NLP" target="_blank">NLP</a></li>
+                        <li><a href="https://github.com/jorgemiguelcordeiro/LLMs" target="_blank">LLMs</a></li>
+                        <li><a href="https://github.com/jorgemiguelcordeiro/Computer-vision" target="_blank">Computer Vision</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Jorge Miguel Cordeiro. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="back-to-top">
+        <i class="fas fa-arrow-up"></i>
     </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on links
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('active');
+            } else {
+                backToTopButton.classList.remove('active');
+            }
+        });
+
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
 </body>
 </html>
